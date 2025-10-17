@@ -1,0 +1,23 @@
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: this is for environment you will deploy on
+        required: true
+        default: staging
+        options:
+          - staging
+          - dev
+          - predeploy
+          - deploy
+
+
+jobs:
+  _1st_job:
+    name: my first job
+    runs-on: ubuntu-latest
+    steps:
+      - name: hello 
+        run: hello from ${{job}}
+
+  
