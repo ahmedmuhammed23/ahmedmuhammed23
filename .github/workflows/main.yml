@@ -5,6 +5,7 @@ on:
         description: this is for environment you will deploy on
         required: true
         default: staging
+        type: choice
         options:
           - staging
           - dev
@@ -18,6 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: hello 
-        run: hello from ${{job}}
+        run: echo "Hello from ${{github.job}}"
 
   
