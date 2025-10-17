@@ -20,5 +20,26 @@ jobs:
     steps:
       - name: hello 
         run: echo "Hello from ${{github.job}}"
+  _2nd_job:
+    name: my second job
+    runs-on: ubuntu-latest
+    steps:
+         - name: check out
+           uses: actions/checkout@v5.0.0
+          
+         - name: access env
+           run: |
+            ENV_FILE="congif/${{github.inputs.environment}}.yaml"
+            echo "Loading $ENV_FILE"
+            echo "APP_ENV=$(yq '.APP_ENV' $ENV_FILE)" >> $GITHUB_ENV
+            echo "APP_URL=$(yq '.APP_URL' $ENV_FILE)" >> $GITHUB_ENV
+
+         - name: output env
+           run: |
+             echo "app env : $APP_ENV"
+             echo "app url : $APP_URL"
+             
+            
+
 
   
