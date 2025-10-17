@@ -1,2 +1,2 @@
-APP_ENV=dev
-APP_url=www.vodafoneuk-dev.com
+APP_ENV: dev
+APP_url: www.vodafoneuk-dev.com
