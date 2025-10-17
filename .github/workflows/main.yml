@@ -29,7 +29,7 @@ jobs:
           
          - name: access env
            run: |
-            ENV_FILE="congif/${{github.inputs.environment}}.yaml"
+            ENV_FILE="congif/${{github.event.inputs.environment}}.yaml"
             echo "Loading $ENV_FILE"
             echo "APP_ENV=$(yq '.APP_ENV' $ENV_FILE)" >> $GITHUB_ENV
             echo "APP_URL=$(yq '.APP_URL' $ENV_FILE)" >> $GITHUB_ENV
